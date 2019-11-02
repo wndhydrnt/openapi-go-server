@@ -1,0 +1,19 @@
+{{>partial_header}}
+package {{packageName}}
+
+// Logger logs errors that occur during the request flow.
+type Logger interface {
+	Error(args ...interface{})
+}
+
+// NoopLogger implements Logger.
+type NoopLogger struct{}
+
+func (n *NoopLogger) Error(args ...interface{}) {}
+
+var apiLog Logger = &NoopLogger{}
+
+// SetLog sets the logger of the package.
+func SetLog(l Logger) {
+	apiLog = l
+}
