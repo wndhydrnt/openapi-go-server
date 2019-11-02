@@ -21,3 +21,14 @@ The templates are a fork of the [original go-server generator](https://github.co
 ## Example
 
 See [examples/petstore](examples/petstore).
+
+## Usage
+
+```
+curl -L -o openapi-go-server.zip https://github.com/wndhydrnt/openapi-go-server/archive/master.zip
+unzip openapi-go-server.zip
+rm openapi-go-server.zip
+mv openapi-go-server-master/go-server .
+rm -rf openapi-go-server-master/
+openapi-generator generate -i https://petstore.swagger.io/v2/swagger.json -o . --generator-name go-server --additional-properties=sourceFolder=api,packageName=api -t ./go-server
+```
